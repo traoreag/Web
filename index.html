@@ -187,8 +187,13 @@
             // Parcourir les lignes du CSV
             for (var i = 0; i < lignes.length; i++) {
                 var colonnes = lignes[i].split(";");
-                var valeur = colonnes[4].trim();
-                valeurs.push(valeur); // Stocker la valeur dans le tableau
+
+                if (colonnes.length >= 5 && colonnes[4]) {
+                    var valeur = colonnes[4].trim();
+                    if (valeur !== "") {
+                        valeurs.push(valeur); // Stocker la valeur dans le tableau
+                    }
+                }
             }
 
             // Trier les valeurs par ordre alphabétique
