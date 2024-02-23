@@ -179,7 +179,7 @@
         }
 
         // Fonction pour extraire les valeurs de la 3e colonne du CSV
-        function extraireTroisiemeColonne(csvData) {
+        function extrairePays(csvData) {
             var lignes = csvData.split("\n");
             var valeurs = [];
             var select = document.getElementById("csvSelect");
@@ -204,7 +204,7 @@
         }
 
         // Appeler la fonction pour charger et traiter le fichier CSV
-        chargerCSV("pays.csv", extraireTroisiemeColonne);
+        chargerCSV("pays.csv", extrairePays);
     </script>
 </body>
 </html>
