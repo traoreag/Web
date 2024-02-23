@@ -3,213 +3,131 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Connexion et Inscription</title>
+    <title>Profil Utilisateur</title>
     <style>
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f9f9f9;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+            background-color: #f2f2f2;
         }
-
-        .container {
-            max-width: 400px;
-            padding: 40px;
-            background-color: #ffffff;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-        }
-
-        h2 {
-            text-align: center;
-            color: #333333;
-            margin-bottom: 30px;
-        }
-
-        form {
-            margin-top: 20px;
-        }
-
-        input[type="text"],
-        input[type="password"],
-        input[type="tel"],
-        input[type="submit"],
-        select {
-            width: 100%;
-            padding: 15px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            box-sizing: border-box;
-            background-color: #f9f9f9;
-        }
-
-        
-        input[type="date"]{
-            width: auto;
-            padding: 15px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            box-sizing: border-box;
-            background-color: #f9f9f9;
-        }
-
-        input[type="submit"] {
+        .titre {
+            padding: 20px;
             background-color: #007bff;
             color: #fff;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        input[type="submit"]:hover {
-            background-color: #0056b3;
-        }
-
-        select {
-            width: auto;
-            padding: 15px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            box-sizing: border-box;
-            background-color: #f9f9f9;
-            appearance: none;
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            background-image: url('data:image/svg+xml;utf8,<svg fill="#333333" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
-            background-repeat: no-repeat;
-            background-position: calc(100% - 15px) center;
-        }
-
-
-        p {
             text-align: center;
-            margin-top: 20px;
-            color: #666666;
+            border-radius: 10px;
+            margin-bottom: 20px;
         }
-
-        a {
-            color: #007bff;
-            text-decoration: none;
-            font-weight: bold;
-            transition: color 0.3s ease;
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 300px; /* Les commandes prennent le reste de l'espace, les infos utilisateur ont une largeur fixe */
+            grid-gap: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
         }
-
-        a:hover {
-            color: #0056b3;
+        .orders {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .user-info {
+            background-color: #e6e6e6;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .edit-button {
+            display: block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .messages {
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
         }
     </style>
-    <link
-     rel="stylesheet"
-     href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css"
-   />
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
 </head>
 <body>
-    <div class="container">
-        <form id="loginForm" action="#" method="post">
-            <h2>Connexion</h2>
-            <input type="text" name="username" placeholder="Nom d'utilisateur" required>
-            <input type="password" name="password" placeholder="Mot de passe" required>
-            <input type="submit" value="Se connecter">
-            <p>Pas de compte? <a href="#" id="toggleLinkSignup">Inscrivez-vous ici</a>.</p>
-        </form>
-        <form id="signupForm" action="#" method="post" style="display: none;">
-            <h2>Inscription</h2>
-            <input type="text" name="new_username" placeholder="Nouveau nom d'utilisateur" required>
-            <input type="password" name="new_password" placeholder="Nouveau mot de passe" required>
-            <input type="date" id="date" name="dob" value="2000-01-01" min="1900-01-01" max="2024-01-01" placeholder="Date de naissance" required>
-            <select name="gender" required>
-                <option value="" disabled selected>Genre</option>
-                <option value="male">Homme</option>
-                <option value="female">Femme</option>
-                <option value="other">Autre</option>
-            </select>
-            <select id="csvSelect">
-                <option value="" disabled selected>Pays de naissance</option>
-            </select>
-            <input type="tel" name="phone" placeholder="Numéro de téléphone" required>
-            <input type="submit" value="S'inscrire">
-            <p>Déjà un compte? <a href='#' id='toggleLinkLogin'>Connectez-vous ici</a>.</p>
-        </form>
+
+<div class="titre">
+    <h1>Mon Profil</h1>
+</div>
+<div class="container">
+    <div class="orders">
+        <h2>Commandes</h2>
+        <div id="liste-commandes">
+        </div>
     </div>
+    <div class="user-info" id="info-utilisateur">
+        <h2>Informations Utilisateur</h2>
+        <p><strong>Nom:</strong> <span id="nom"></span></p>
+        <p><strong>Email:</strong> <span id="email"></span></p>
+        <p><strong>Pays de naissance:</strong> <span id="pays"></span></p>
+        <p><strong>Adresse:</strong> <span id="adresse"></span></p>
+        <p><strong> Portable :</strong> <span id="numero"></span></p>
+        <button class="edit-button">Modifier les informations</button>
+    </div>
+</div>
 
-    <script>
-        var toggleLinkSignup = document.getElementById('toggleLinkSignup');
-        var toggleLinkLogin = document.getElementById('toggleLinkLogin');
+<div class="messages">
+    <h2>Messages</h2>
+</div>
 
-        toggleLinkSignup.addEventListener('click', function(event) {
-            event.preventDefault(); // Empêche le lien de changer de page
-            var loginForm = document.getElementById('loginForm');
-            var signupForm = document.getElementById('signupForm');
+<script>
 
-            loginForm.style.display = 'none';
-            signupForm.style.display = 'block';
+    $(document).ready(function(){ 
+        // Requête AJAX pour récupérer les commandes
+        $.ajax({
+            url: 'commandes.php', // Adresse de votre script serveur
+            method: 'GET', // Méthode HTTP pour récupérer les données
+            success: function(response){
+                $('#liste-commandes').html(response);
+            },
+            error: function(xhr, status, error){
+                console.error(xhr.responseText);
+            }
         });
 
-        toggleLinkLogin.addEventListener('click', function(event) {
-            event.preventDefault(); // Empêche le lien de changer de page
-            var loginForm = document.getElementById('loginForm');
-            var signupForm = document.getElementById('signupForm');
-
-            signupForm.style.display = 'none';
-            loginForm.style.display = 'block';
+        // Requête AJAX pour récupérer les informations de l'utilisateur
+        $.ajax({
+            url: 'user_info.php', // Adresse de votre script serveur
+            method: 'GET', // Méthode HTTP pour récupérer les données
+            success: function(response){
+                var utilisateur = JSON.parse(response);
+                // Mettre à jour les éléments HTML avec les informations de l'utilisateur
+                $('#nom').text(utilisateur.nom);
+                $('#email').text(utilisateur.email);
+                $('#pays').text(utilisateur.pays);
+                $('#adresse').text(utilisateur.adresse);
+                $('#numero').text(utilisateur.numero);
+            },
+            error: function(xhr, status, error){
+                console.error(xhr.responseText);
+            }
         });
 
-        // Fonction pour charger et traiter le fichier CSV
-        function chargerCSV(url, callback) {
-            var xhr = new XMLHttpRequest();
-            xhr.onreadystatechange = function() {
-                if (xhr.readyState === XMLHttpRequest.DONE) {
-                    if (xhr.status === 200) {
-                        callback(xhr.responseText);
-                    } else {
-                        console.error("Erreur de chargement du fichier CSV : " + xhr.status);
-                    }
-                }
-            };
-            xhr.open("GET", url, true);
-            xhr.send();
-        }
-
-        // Fonction pour extraire les valeurs de la 3e colonne du CSV
-        function extrairePays(csvData) {
-            var lignes = csvData.split("\n");
-            var valeurs = [];
-            var select = document.getElementById("csvSelect");
-
-            // Parcourir les lignes du CSV
-            for (var i = 0; i < lignes.length; i++) {
-                var colonnes = lignes[i].split(";");
-
-                if (colonnes.length >= 5 && colonnes[4]) {
-                    var valeur = colonnes[4].trim();
-                    if (valeur !== "") {
-                        valeurs.push(valeur); // Stocker la valeur dans le tableau
-                    }
-                }
+        // Requête AJAX pour récupérer les messages de l'utilisateur
+        $.ajax({
+            url: 'messages.php', // Adresse de votre script serveur
+            method: 'GET', // Méthode HTTP pour récupérer les données
+            success: function(response){
+                $('#messages-utilisateur').html(response);
+            },
+            error: function(xhr, status, error){
+                console.error(xhr.responseText);
             }
+        });
+    });
+</script>
 
-            // Trier les valeurs par ordre alphabétique
-            valeurs.sort();
-
-            // Ajouter les valeurs triées dans le select
-            for (var j = 0; j < valeurs.length; j++) {
-                var option = document.createElement("option");
-                option.value = valeurs[j];
-                option.textContent = valeurs[j];
-                select.appendChild(option);
-            }
-        }
-
-        // Appeler la fonction pour charger et traiter le fichier CSV
-        chargerCSV("pays.csv", extrairePays);
-    </script>
 </body>
 </html>
