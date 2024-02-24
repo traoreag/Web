@@ -7,6 +7,7 @@ if($mysqli->connect_errno) {
     echo "Echec de connexion à la base de données: " . $mysqli->connect_error;
     exit();
 }
+
 // Récupérer les données du formulaire d'inscription
 $nom = $_POST['nom'];
 $prenom = $_POST['prenom'];
@@ -27,7 +28,6 @@ if($password !== $confirm_password) {
 }
 
 // Vérifier si l'utilisateur existe déjà
-$username = $_POST['username'];
 $query = "SELECT * FROM User WHERE username='$username'";
 $result = $mysqli->query($query);
 if($result->num_rows > 0) {
@@ -46,5 +46,6 @@ if ($mysqli->query($sql) === TRUE) {
     echo "Erreur d'inscription: " . $mysqli->error;
 }
 
+// Fermer la connexion à la base de données
 $mysqli->close();
 ?>
