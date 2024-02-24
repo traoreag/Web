@@ -42,9 +42,10 @@ $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 $sql = "INSERT INTO User (nom, prenom, username, email, dob, gender, pays, adresse, numero, password) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 $stmt = $mysqli->prepare($sql);
 $stmt->bind_param("ssssssssss", $nom, $prenom, $username, $email, $date, $gender, $pays, $adresse, $phone, $hashed_password);
+$stmt->execute();
+$result = $stmt->get_result();
 
-// Exécuter la requête
-if ($stmt->execute()) {
+if ($result->num_rows > 0) {
     echo "Inscription réussie";
 } else {
     echo "Erreur d'inscription: " . $stmt->error;
