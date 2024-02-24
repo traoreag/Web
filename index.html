@@ -81,6 +81,8 @@
 
 <div class="messages">
     <h2>Messages</h2>
+    <div id="liste-messages">
+    </div>
 </div>
 
 <script>
@@ -103,7 +105,7 @@
             url: 'php/messages.php', // Adresse de votre script serveur
             method: 'GET', // Méthode HTTP pour récupérer les données
             success: function(response){
-                $('#messages-utilisateur').html(response);
+                $('#liste-messages').html(response);
             },
             error: function(xhr, status, error){
                 console.error(xhr.responseText);
