@@ -2,6 +2,8 @@
 // Démarrer la session
 session_start();
 
+$_SESSION['user_id'] = -1;
+
 // Connexion à la base de données
 $mysqli = new mysqli("192.168.56.10", "admin", "network", "e_commerce");
 
