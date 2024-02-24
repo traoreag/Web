@@ -1,4 +1,5 @@
 <?php
+session_start(); 
 // Connexion à la base de données
 $mysqli = new mysqli("192.168.56.10", "admin", "network", "e_commerce");
 
