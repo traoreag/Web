@@ -8,7 +8,7 @@ if($mysqli === false){
 }
 
 // Requête SQL pour récupérer les informations de l'utilisateur
-$sql = "SELECT nom, email, ,username, pays, adresse, numero FROM User WHERE id = ?";
+$sql = "SELECT nom, email, username, pays, adresse, numero FROM User WHERE id = ?";
 
 // Préparer la requête
 $stmt = $mysqli->prepare($sql);
