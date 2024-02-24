@@ -216,69 +216,71 @@
 
         // Appeler la fonction pour charger et traiter le fichier CSV
         chargerCSV("pays.csv", extrairePays);
+        
+        $(document).ready(function() {
+            // Requête AJAX pour la connexion
+            $('#login').click(function(e) {
+                e.preventDefault(); // Empêcher le formulaire de soumettre normalement
 
-        // Requête AJAX pour la connexion
-        $('#login').click(function(e) {
-            e.preventDefault(); // Empêcher le formulaire de soumettre normalement
+                // Récupérer les données du formulaire
+                var formData = {
+                    email: $('input[name=email]').val(),
+                    password: $('input[name=password]').val()
+                };
 
-            // Récupérer les données du formulaire
-            var formData = {
-                email: $('input[name=email]').val(),
-                password: $('input[name=password]').val()
-            };
-
-            // Effectuer la requête AJAX
-            $.ajax({
-                type: 'POST',
-                url: 'php/connexion.php',
-                data: formData,
-                success: function(response) {
-                    // Traitement de la réponse en cas de succès
-                    console.log(response);
-                    // Rediriger l'utilisateur ou afficher un message de succès
-                },
-                error: function(xhr, status, error) {
-                    // Traitement de l'erreur
-                    console.log(xhr.responseText);
-                    // Afficher un message d'erreur à l'utilisateur
-                }
+                // Effectuer la requête AJAX
+                $.ajax({
+                    type: 'POST',
+                    url: 'php/connexion.php',
+                    data: formData,
+                    success: function(response) {
+                        // Traitement de la réponse en cas de succès
+                        console.log(response);
+                        // Rediriger l'utilisateur ou afficher un message de succès
+                    },
+                    error: function(xhr, status, error) {
+                        // Traitement de l'erreur
+                        console.log(xhr.responseText);
+                        // Afficher un message d'erreur à l'utilisateur
+                    }
+                });
             });
-        });
 
 
-        $('#signup').click(function(e) {
-            e.preventDefault(); // Empêcher le formulaire de soumettre normalement
+            $('#signup').click(function(e) {
+                e.preventDefault(); // Empêcher le formulaire de soumettre normalement
 
-            // Récupérer les données du formulaire
-            var formData = {
-                nom: $('input[name=nom]').val(),
-                prenom: $('input[name=prenom]').val(),
-                username: $('input[name=new_username]').val(),
-                email: $('input[name=new_email]').val(),
-                date: $('input[name=dob]').val(),
-                gender: $('select[name=gender]').val(),
-                pays: $('select[name=pays_naissance]').val(),
-                adresse: $('input[name=adresse]').val(),
-                phone: $('input[name=phone]').val(),
-                password: $('input[name=new_password]').val(),
-                confirm_password: $('input[name=Confirm_password]').val()
-            };
+                // Récupérer les données du formulaire
+                var formData = {
+                    nom: $('input[name=nom]').val(),
+                    prenom: $('input[name=prenom]').val(),
+                    username: $('input[name=new_username]').val(),
+                    email: $('input[name=new_email]').val(),
+                    date: $('input[name=dob]').val(),
+                    gender: $('select[name=gender]').val(),
+                    pays: $('select[name=pays_naissance]').val(),
+                    adresse: $('input[name=adresse]').val(),
+                    phone: $('input[name=phone]').val(),
+                    password: $('input[name=new_password]').val(),
+                    confirm_password: $('input[name=Confirm_password]').val()
+                };
 
-            // Effectuer la requête AJAX
-            $.ajax({
-                type: 'POST',
-                url: 'php/inscription.php',
-                data: formData,
-                success: function(response) {
-                    // Traitement de la réponse en cas de succès
-                    console.log(response);
-                    // Rediriger l'utilisateur ou afficher un message de succès
-                },
-                error: function(xhr, status, error) {
-                    // Traitement de l'erreur
-                    console.log(xhr.responseText);
-                    // Afficher un message d'erreur à l'utilisateur
-                }
+                // Effectuer la requête AJAX
+                $.ajax({
+                    type: 'POST',
+                    url: 'php/inscription.php',
+                    data: formData,
+                    success: function(response) {
+                        // Traitement de la réponse en cas de succès
+                        console.log(response);
+                        // Rediriger l'utilisateur ou afficher un message de succès
+                    },
+                    error: function(xhr, status, error) {
+                        // Traitement de l'erreur
+                        console.log(xhr.responseText);
+                        // Afficher un message d'erreur à l'utilisateur
+                    }
+                });
             });
         });
 
