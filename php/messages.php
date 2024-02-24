@@ -21,7 +21,7 @@ if(!$stmt) {
 }
 
 // Lier les paramètres
-$user_id = 1; // Remplacez par l'ID de l'utilisateur
+$user_id = 5; // Remplacez par l'ID de l'utilisateur
 
 // Préparer la requête
 $stmt->bind_param("i", $user_id);
