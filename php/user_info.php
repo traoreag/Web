@@ -8,7 +8,7 @@ if($mysqli === false){
 }
 
 // Requête SQL pour récupérer les informations de l'utilisateur
-$sql = "SELECT nom, email, pays, adresse, numero FROM User WHERE id = ?";
+$sql = "SELECT nom, email, ,username, pays, adresse, numero FROM User WHERE id = ?";
 
 // Préparer la requête
 $stmt = $mysqli->prepare($sql);
@@ -21,7 +21,7 @@ $stmt->bind_param("i", $user_id);
 $stmt->execute();
 
 // Lier les résultats de la requête à des variables
-$stmt->bind_result($nom, $email, $pays, $adresse, $numero);
+$stmt->bind_result($nom, $email, $username, $pays, $adresse, $numero);
 
 // Créer un tableau associatif pour stocker les informations de l'utilisateur
 $utilisateur = array();
@@ -30,7 +30,8 @@ $utilisateur = array();
 while($stmt->fetch()){
     $utilisateur['nom'] = $nom;
     $utilisateur['email'] = $email;
-    $utilisateur['pays'] = $ville;
+    $utilisateur['username'] = $username;
+    $utilisateur['pays'] = $pays;
     $utilisateur['adresse'] = $adresse;
     $utilisateur['numero'] = $numero;
 }

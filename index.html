@@ -70,10 +70,11 @@
     </div>
     <div class="user-info" id="info-utilisateur">
         <h2>Informations Utilisateur</h2>
-        <p><strong>Nom:</strong> <span id="nom"></span></p>
-        <p><strong>Email:</strong> <span id="email"></span></p>
-        <p><strong>Pays de naissance:</strong> <span id="pays"></span></p>
-        <p><strong>Adresse:</strong> <span id="adresse"></span></p>
+        <p><strong>Nom :</strong> <span id="nom"></span></p>
+        <p><strong>Email :</strong> <span id="email"></span></p>
+        <p><strong>Username :</strong> <span id="username"></span></p>
+        <p><strong>Pays de naissance :</strong> <span id="pays"></span></p>
+        <p><strong>Adresse :</strong> <span id="adresse"></span></p>
         <p><strong> Portable :</strong> <span id="numero"></span></p>
         <button class="edit-button">Modifier les informations</button>
     </div>
@@ -121,6 +122,7 @@
                 // Mettre à jour les éléments HTML avec les informations de l'utilisateur
                 $('#nom').text(utilisateur.nom);
                 $('#email').text(utilisateur.email);
+                $('#username').text(utilisateur.username);
                 $('#pays').text(utilisateur.pays);
                 $('#adresse').text(utilisateur.adresse);
                 $('#numero').text(utilisateur.numero);
