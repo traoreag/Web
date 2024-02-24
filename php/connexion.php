@@ -12,7 +12,7 @@ $email = $_POST['email'];
 $password = $_POST['password'];
 
 // Requête pour vérifier si l'utilisateur existe dans la base de données
-$sql = "SELECT * FROM User WHERE email='$email' AND mot_de_passe='$password'";
+$sql = "SELECT * FROM User WHERE email='$email' AND password='$password'";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
