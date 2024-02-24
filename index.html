@@ -118,7 +118,7 @@
 
         // Requête AJAX pour récupérer les messages de l'utilisateur
         $.ajax({
-            url: 'messages.php', // Adresse de votre script serveur
+            url: 'php/messages.php', // Adresse de votre script serveur
             method: 'GET', // Méthode HTTP pour récupérer les données
             success: function(response){
                 $('#messages-utilisateur').html(response);
