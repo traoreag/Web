@@ -88,7 +88,7 @@
     $(document).ready(function(){ 
         // Requête AJAX pour récupérer les commandes
         $.ajax({
-            url: 'commandes.php', // Adresse de votre script serveur
+            url: 'php/commandes.php', // Adresse de votre script serveur
             method: 'GET', // Méthode HTTP pour récupérer les données
             success: function(response){
                 $('#liste-commandes').html(response);
@@ -100,7 +100,7 @@
 
         // Requête AJAX pour récupérer les informations de l'utilisateur
         $.ajax({
-            url: 'user_info.php', // Adresse de votre script serveur
+            url: 'php/user_info.php', // Adresse de votre script serveur
             method: 'GET', // Méthode HTTP pour récupérer les données
             success: function(response){
                 var utilisateur = JSON.parse(response);
