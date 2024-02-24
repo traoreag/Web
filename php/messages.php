@@ -1,6 +1,6 @@
 <?php
 // Connexion à la base de données
-$mysqli = new mysqli("192.168.56.10", "admin", "network", "e-commerce");
+$mysqli = new mysqli("192.168.56.10", "admin", "network", "e_commerce");
 
 // Vérifier la connexion
 if($mysqli->connect_errno) {
@@ -9,7 +9,7 @@ if($mysqli->connect_errno) {
 }
 
 // Requête SQL pour récupérer les messages de l'utilisateur
-$sql = "SELECT * FROM messages WHERE utilisateur_id = ?";
+$sql = "SELECT * FROM Message WHERE proprietaire = ?";
 
 // Préparer la requête
 $stmt = $mysqli->prepare($sql);

@@ -1,6 +1,6 @@
 <?php
 // Connexion à la base de données
-$mysqli = new mysqli("192.168.56.10", "admin", "network", "e-commerce");
+$mysqli = new mysqli("192.168.56.10", "admin", "network", "e_commerce");
 
 // Vérifier la connexion
 if($mysqli === false){
@@ -8,7 +8,7 @@ if($mysqli === false){
 }
 
 // Requête SQL pour récupérer les informations de l'utilisateur
-$sql = "SELECT nom, email, pays, adresse, numero FROM User WHERE id = ?";
+$sql = "SELECT nom, email, pays, adresse, numero FROM User WHERE proprietaire = ?";
 
 // Préparer la requête
 $stmt = $mysqli->prepare($sql);

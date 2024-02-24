@@ -117,7 +117,7 @@
         <form id="loginForm" action="#" method="post">
             <h2>Connexion</h2>
             <input type="email" name="email" placeholder="E-mail" required>
-            <input type="password" name="new_password" placeholder="mot de passe" required>
+            <input type="password" name="password" placeholder="mot de passe" required>
             <input type="submit" value="Se connecter">
             <p>Pas de compte? <a href="#" id="toggleLinkSignup">Inscrivez-vous ici</a>.</p>
         </form>
@@ -134,7 +134,7 @@
                 <option value="female">Femme</option>
                 <option value="other">Autre</option>
             </select>
-            <select id="csvSelect">
+            <select id="pays_naissance">
                 <option value="" disabled selected>Pays de naissance</option>
             </select>
             <input type="test" name="adresse" placeholder="Votre Adresse" required>
@@ -188,7 +188,7 @@
         function extrairePays(csvData) {
             var lignes = csvData.split("\n");
             var valeurs = [];
-            var select = document.getElementById("csvSelect");
+            var select = document.getElementById("pays_naissance");
 
             // Parcourir les lignes du CSV
             for (var i = 0; i < lignes.length; i++) {
@@ -216,6 +216,72 @@
 
         // Appeler la fonction pour charger et traiter le fichier CSV
         chargerCSV("pays.csv", extrairePays);
+
+        // Requête AJAX pour la connexion
+        $('#loginForm').submit(function(e) {
+            e.preventDefault(); // Empêcher le formulaire de soumettre normalement
+
+            // Récupérer les données du formulaire
+            var formData = {
+                email: $('input[name=email]').val(),
+                password: $('input[name=password]').val()
+            };
+
+            // Effectuer la requête AJAX
+            $.ajax({
+                type: 'POST',
+                url: 'connexion.php',
+                data: formData,
+                success: function(response) {
+                    // Traitement de la réponse en cas de succès
+                    console.log(response);
+                    // Rediriger l'utilisateur ou afficher un message de succès
+                },
+                error: function(xhr, status, error) {
+                    // Traitement de l'erreur
+                    console.log(xhr.responseText);
+                    // Afficher un message d'erreur à l'utilisateur
+                }
+            });
+        });
+
+
+        $('#signupForm').submit(function(e) {
+            e.preventDefault(); // Empêcher le formulaire de soumettre normalement
+
+            // Récupérer les données du formulaire
+            var formData = {
+                nom: $('input[name=nom]').val(),
+                prenom: $('input[name=prenom]').val(),
+                username: $('input[name=new_username]').val(),
+                email: $('input[name=new_email]').val(),
+                date: $('input[name=dob]').val(),
+                gender: $('select[name=gender]').val(),
+                pays: $('select[name=pays_naissance]').val(),
+                adresse: $('input[name=adresse]').val(),
+                phone: $('input[name=phone]').val(),
+                password: $('input[name=new_password]').val(),
+                confirm_password: $('input[name=Confirm_password]').val()
+            };
+
+            // Effectuer la requête AJAX
+            $.ajax({
+                type: 'POST',
+                url: 'inscription.php',
+                data: formData,
+                success: function(response) {
+                    // Traitement de la réponse en cas de succès
+                    console.log(response);
+                    // Rediriger l'utilisateur ou afficher un message de succès
+                },
+                error: function(xhr, status, error) {
+                    // Traitement de l'erreur
+                    console.log(xhr.responseText);
+                    // Afficher un message d'erreur à l'utilisateur
+                }
+            });
+        });
+
     </script>
 </body>
 </html>
