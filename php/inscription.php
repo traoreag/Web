@@ -39,7 +39,7 @@ if($result->num_rows > 0) {
 $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
 // Exécuter la requête d'insertion dans la base de données
-$sql = "INSERT INTO User (nom, prenom, username, email, dob, gender, pays, adresse, numero, password) VALUES ('$nom', '$prenom', '$username', '$email', '$date', '$gender', '$pays', '$adresse', '$phone', '$hashed_password')";
+$sql = "INSERT INTO User (nom, prenom, username, email, dob, gender, pays, adresse, numero, password) VALUES ('$nom', '$prenom', '$username', '$email', '$date', '$gender', '$pays', '$adresse', '$phone', '$password')";
 if ($mysqli->query($sql) === TRUE) {
     echo "Inscription réussie";
 } else {
