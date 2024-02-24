@@ -118,7 +118,7 @@
             <h2>Connexion</h2>
             <input type="email" name="email" placeholder="E-mail" required>
             <input type="password" name="password" placeholder="mot de passe" required>
-            <input type="submit" value="Se connecter">
+            <input type="submit" id="login" value="Se connecter">
             <p>Pas de compte? <a href="#" id="toggleLinkSignup">Inscrivez-vous ici</a>.</p>
         </form>
         <form id="signupForm" action="#" method="post" style="display: none;">
@@ -141,7 +141,7 @@
             <input type="tel" name="phone" placeholder="Numéro de téléphone" required>
             <input type="password" name="new_password" placeholder="Nouveau mot de passe" required>
             <input type="password" name="Confirm_password" placeholder="Comfirmez votre mot de passe" required>
-            <input type="submit" value="S'inscrire">
+            <input type="submit" id="signup" value="S'inscrire">
             <p>Déjà un compte? <a href='#' id='toggleLinkLogin'>Connectez-vous ici</a>.</p>
         </form>
     </div>
@@ -218,7 +218,7 @@
         chargerCSV("pays.csv", extrairePays);
 
         // Requête AJAX pour la connexion
-        $('#loginForm').submit(function(e) {
+        $('#login').submit(function(e) {
             e.preventDefault(); // Empêcher le formulaire de soumettre normalement
 
             // Récupérer les données du formulaire
@@ -246,7 +246,7 @@
         });
 
 
-        $('#signupForm').submit(function(e) {
+        $('#signup').submit(function(e) {
             e.preventDefault(); // Empêcher le formulaire de soumettre normalement
 
             // Récupérer les données du formulaire
