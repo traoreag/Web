@@ -1,4 +1,7 @@
 <?php
+// Démarrer la session
+session_start();
+
 // Connexion à la base de données
 $mysqli = new mysqli("192.168.56.10", "admin", "network", "e_commerce");
 
@@ -18,10 +21,12 @@ $stmt = $mysqli->prepare($sql);
 $stmt->bind_param("ss", $email, $password);
 $stmt->execute();
 $result = $stmt->get_result();
+$row = $result->fetch_assoc();
 
 if ($result->num_rows > 0) {
     // Utilisateur trouvé, authentification réussie
     echo "Connexion réussie";
+    $_SESSION['user_id'] = $row['id'];
 } else {
     // Aucun utilisateur trouvé, authentification échouée
     echo "Identifiants invalides";

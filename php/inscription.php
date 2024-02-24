@@ -1,4 +1,7 @@
 <?php
+// Démarrer la session
+session_start();
+
 // Connexion à la base de données
 $mysqli = new mysqli("192.168.56.10", "admin", "network", "e_commerce");
 
@@ -42,10 +45,17 @@ $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 $sql = "INSERT INTO User (nom, prenom, username, email, dob, gender, pays, adresse, numero, password) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 $stmt = $mysqli->prepare($sql);
 $stmt->bind_param("ssssssssss", $nom, $prenom, $username, $email, $date, $gender, $pays, $adresse, $phone, $hashed_password);
+$sql2 = "SELECT * FROM User WHERE email=? AND password=?";
+$stmt2 = $mysqli->prepare($sql);
+$stmt2->bind_param("ss", $email, $password);
 
 // Exécuter la requête
 if ($stmt->execute()) {
     echo "Inscription réussie";
+    $stmt2->execute();
+    $result = $stmt2->get_result();
+    $row = $result->fetch_assoc();
+    $_SESSION['user_id'] = $row['id'];
 } else {
     echo "Erreur d'inscription: " . $stmt->error;
 }

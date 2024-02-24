@@ -14,7 +14,7 @@ $sql = "SELECT nom, email, username, pays, adresse, numero FROM User WHERE id = 
 $stmt = $mysqli->prepare($sql);
 
 // Lier les paramètres
-$user_id = 1; // Remplacez par l'ID de l'utilisateur
+$user_id = $_SESSION['user_id']; // Remplacez par l'ID de l'utilisateur
 $stmt->bind_param("i", $user_id);
 
 // Exécuter la requête
