@@ -22,6 +22,8 @@ if(!$stmt) {
 
 // Lier les paramètres
 $user_id = 123; // Remplacez par l'ID de l'utilisateur
+
+// Préparer la requête
 $stmt->bind_param("i", $user_id);
 
 // Exécuter la requête
@@ -35,14 +37,17 @@ $result = $stmt->get_result();
 
 // Vérifier s'il y a des résultats
 if($result->num_rows === 0) {
-    echo "Aucun message pour le moment.";
+    echo "Aucune commande pour le moment.";
     exit();
 }
 
-// Afficher les messages
-while($row = $result->fetch_assoc()) {
-    echo "<p>{$row['emetteur']}</p><p>{$row['message']}</p>";
+
+while($row = $result->fetch_assoc()){
+    $html .= '<p>'.$row['emetteur'].'</p><p>'.$row['contenu'].'</p>';
 }
+
+// Afficher le HTML
+echo $html;
 
 // Fermer la connexion et les ressources
 $stmt->close();

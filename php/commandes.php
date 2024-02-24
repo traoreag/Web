@@ -15,6 +15,8 @@ $stmt = $mysqli->prepare($sql);
 
 // Lier les paramètres
 $user_id = 123; // Remplacez par l'ID de l'utilisateur
+
+// Préparer la requête
 $stmt->bind_param("i", $user_id);
 
 // Exécuter la requête
