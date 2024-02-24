@@ -3,8 +3,9 @@
 $mysqli = new mysqli("192.168.56.10", "admin", "network", "e_commerce");
 
 // Vérifier la connexion
-if($mysqli === false){
-    die("Erreur de connexion à la base de données: " . $mysqli->connect_error);
+if($mysqli->connect_errno) {
+    echo "Echec de connexion à la base de données: " . $mysqli->connect_error;
+    exit();
 }
 
 // Récupérer les données du formulaire de connexion
