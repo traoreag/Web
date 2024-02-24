@@ -9,12 +9,15 @@ if($mysqli->connect_errno) {
 }
 
 // Récupérer les données du formulaire de connexion
-$email = $_POST['email'];
-$password = $_POST['password'];
+$email = $mysqli->real_escape_string($_POST['email']);
+$password = $mysqli->real_escape_string($_POST['password']);
 
-// Requête pour vérifier si l'utilisateur existe dans la base de données
-$sql = "SELECT * FROM User WHERE email='$email' AND password='$password'";
-$result = $conn->query($sql);
+// Requête préparée pour vérifier si l'utilisateur existe dans la base de données
+$sql = "SELECT * FROM User WHERE email=? AND password=?";
+$stmt = $mysqli->prepare($sql);
+$stmt->bind_param("ss", $email, $password);
+$stmt->execute();
+$result = $stmt->get_result();
 
 if ($result->num_rows > 0) {
     // Utilisateur trouvé, authentification réussie
@@ -24,5 +27,7 @@ if ($result->num_rows > 0) {
     echo "Identifiants invalides";
 }
 
-$conn->close();
+// Fermer les ressources
+$stmt->close();
+$mysqli->close();
 ?>
