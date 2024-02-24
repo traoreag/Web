@@ -23,7 +23,7 @@ $confirm_password = $_POST['confirm_password'];
 
 // Vérifier si le mot de passe et la confirmation sont identiques
 if($password !== $confirm_password) {
-    echo "Les mots de passe ne correspondent pas" . $mysqli->error;
+    echo "Les mots de passe ne correspondent pas";
     exit();
 }
 
@@ -31,7 +31,7 @@ if($password !== $confirm_password) {
 $query = "SELECT * FROM User WHERE username='$username'";
 $result = $mysqli->query($query);
 if($result->num_rows > 0) {
-    echo "Nom d'utilisateur déjà utilisé, veuillez en choisir un autre" . $mysqli->error;
+    echo "Nom d'utilisateur déjà utilisé, veuillez en choisir un autre";
     exit();
 }
 
@@ -42,16 +42,15 @@ $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 $sql = "INSERT INTO User (nom, prenom, username, email, dob, gender, pays, adresse, numero, password) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 $stmt = $mysqli->prepare($sql);
 $stmt->bind_param("ssssssssss", $nom, $prenom, $username, $email, $date, $gender, $pays, $adresse, $phone, $hashed_password);
-$stmt->execute();
-$result = $stmt->get_result();
 
-if ($result->num_rows > 0) {
+// Exécuter la requête
+if ($stmt->execute()) {
     echo "Inscription réussie";
 } else {
     echo "Erreur d'inscription: " . $stmt->error;
 }
 
 // Fermer la connexion à la base de données
-    $stmt->close();
+$stmt->close();
 $mysqli->close();
 ?>
