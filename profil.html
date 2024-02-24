@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Utilisateur</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+        .titre {
+            padding: 20px;
+            background-color: #007bff;
+            color: #fff;
+            text-align: center;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 300px; /* Les commandes prennent le reste de l'espace, les infos utilisateur ont une largeur fixe */
+            grid-gap: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        .orders {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .user-info {
+            background-color: #e6e6e6;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .edit-button {
+            display: block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .messages {
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+
+<div class="titre">
+    <h1>Mon Profil</h1>
+</div>
+<div class="container">
+    <div class="orders">
+        <h2>Commandes</h2>
+        <div id="liste-commandes">
+        </div>
+    </div>
+    <div class="user-info" id="info-utilisateur">
+        <h2>Informations Utilisateur</h2>
+        <p><strong>Nom :</strong> <span id="nom"></span></p>
+        <p><strong>Email :</strong> <span id="email"></span></p>
+        <p><strong>Username :</strong> <span id="username"></span></p>
+        <p><strong>Pays de naissance :</strong> <span id="pays"></span></p>
+        <p><strong>Adresse :</strong> <span id="adresse"></span></p>
+        <p><strong> Portable :</strong> <span id="numero"></span></p>
+        <button class="edit-button">Modifier les informations</button>
+    </div>
+</div>
+
+<div class="messages">
+    <h2>Messages</h2>
+    <div id="liste-messages">
+    </div>
+</div>
+
+<script>
+
+    $(document).ready(function(){ 
+        // Requête AJAX pour récupérer les commandes
+        $.ajax({
+            url: 'php/commandes.php', // Adresse de votre script serveur
+            method: 'GET', // Méthode HTTP pour récupérer les données
+            success: function(response){
+                $('#liste-commandes').html(response);
+            },
+            error: function(xhr, status, error){
+                console.error(xhr.responseText);
+            }
+        });
+
+        // Requête AJAX pour récupérer les messages de l'utilisateur
+        $.ajax({
+            url: 'php/messages.php', // Adresse de votre script serveur
+            method: 'GET', // Méthode HTTP pour récupérer les données
+            success: function(response){
+                $('#liste-messages').html(response);
+            },
+            error: function(xhr, status, error){
+                console.error(xhr.responseText);
+            }
+        });
+
+        // Requête AJAX pour récupérer les informations de l'utilisateur
+        $.ajax({
+            url: 'php/user_info.php', // Adresse de votre script serveur
+            method: 'GET', // Méthode HTTP pour récupérer les données
+            success: function(response){
+                var utilisateur = JSON.parse(response);
+                // Mettre à jour les éléments HTML avec les informations de l'utilisateur
+                $('#nom').text(utilisateur.nom);
+                $('#email').text(utilisateur.email);
+                $('#username').text(utilisateur.username);
+                $('#pays').text(utilisateur.pays);
+                $('#adresse').text(utilisateur.adresse);
+                $('#numero').text(utilisateur.numero);
+            },
+            error: function(xhr, status, error){
+                console.error(xhr.responseText);
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
