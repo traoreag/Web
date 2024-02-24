@@ -98,6 +98,18 @@
             }
         });
 
+        // Requête AJAX pour récupérer les messages de l'utilisateur
+        $.ajax({
+            url: 'php/messages.php', // Adresse de votre script serveur
+            method: 'GET', // Méthode HTTP pour récupérer les données
+            success: function(response){
+                $('#messages-utilisateur').html(response);
+            },
+            error: function(xhr, status, error){
+                console.error(xhr.responseText);
+            }
+        });
+
         // Requête AJAX pour récupérer les informations de l'utilisateur
         $.ajax({
             url: 'php/user_info.php', // Adresse de votre script serveur
@@ -110,18 +122,6 @@
                 $('#pays').text(utilisateur.pays);
                 $('#adresse').text(utilisateur.adresse);
                 $('#numero').text(utilisateur.numero);
-            },
-            error: function(xhr, status, error){
-                console.error(xhr.responseText);
-            }
-        });
-
-        // Requête AJAX pour récupérer les messages de l'utilisateur
-        $.ajax({
-            url: 'php/messages.php', // Adresse de votre script serveur
-            method: 'GET', // Méthode HTTP pour récupérer les données
-            success: function(response){
-                $('#messages-utilisateur').html(response);
             },
             error: function(xhr, status, error){
                 console.error(xhr.responseText);
