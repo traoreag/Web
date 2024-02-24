@@ -213,9 +213,6 @@
                 select.appendChild(option);
             }
         }
-
-        // Appeler la fonction pour charger et traiter le fichier CSV
-        chargerCSV("pays.csv", extrairePays);
         
         $(document).ready(function() {
             // Requête AJAX pour la connexion
@@ -282,6 +279,8 @@
                     }
                 });
             });
+        // Appeler la fonction pour charger et traiter le fichier CSV
+        chargerCSV("pays.csv", extrairePays);
         });
 
     </script>
