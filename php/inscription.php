@@ -29,6 +29,8 @@ $confirm_password = $_POST['Confirm_password'];
 // Vérifier si le mot de passe et la confirmation sont identiques
 if($password !== $confirm_password) {
     echo "Les mots de passe ne correspondent pas";
+    echo $password;
+    echo $confirm_password;
     exit();
 }
 
