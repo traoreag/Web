@@ -57,14 +57,14 @@ signup.addEventListener('click', function(event) {
     var formData = {
         nom: $('input[name=nom]').val(),
         prenom: $('input[name=prenom]').val(),
-        username: $('input[name=new_username]').val(),
-        email: $('input[name=new_email]').val(),
-        date: $('input[name=dob]').val(),
+        new_username: $('input[name=new_username]').val(),
+        new_email: $('input[name=new_email]').val(),
+        dob: $('input[name=dob]').val(),
         gender: $('select[name=gender]').val(),
-        pays: $('select[name=pays_naissance]').val(),
+        pays_naissance: $('select[name=pays_naissance]').val(),
         adresse: $('input[name=adresse]').val(),
         phone: $('input[name=phone]').val(),
-        password: $('input[name=new_password]').val(),
+        new_password: $('input[name=new_password]').val(),
         confirm_password: $('input[name=Confirm_password]').val()
     };
 

@@ -16,15 +16,15 @@ if($mysqli->connect_errno) {
 // Récupérer les données du formulaire d'inscription
 $nom = $_POST['nom'];
 $prenom = $_POST['prenom'];
-$username = $_POST['username'];
-$email = $_POST['email'];
+$username = $_POST['new_username'];
+$email = $_POST['new_email'];
 $date = $_POST['dob'];
 $gender = $_POST['gender'];
-$pays = $_POST['pays'];
+$pays = $_POST['pays_naissance']; // Le nom du champ dans le formulaire est 'pays_naissance'
 $adresse = $_POST['adresse'];
 $phone = $_POST['phone'];
-$password = $_POST['password'];
-$confirm_password = $_POST['confirm_password'];
+$password = $_POST['new_password'];
+$confirm_password = $_POST['Confirm_password'];
 
 // Vérifier si le mot de passe et la confirmation sont identiques
 if($password !== $confirm_password) {
@@ -47,17 +47,23 @@ $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 $sql = "INSERT INTO User (nom, prenom, username, email, dob, gender, pays, adresse, numero, password) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 $stmt = $mysqli->prepare($sql);
 $stmt->bind_param("ssssssssss", $nom, $prenom, $username, $email, $date, $gender, $pays, $adresse, $phone, $hashed_password);
-$sql2 = "SELECT * FROM User WHERE email=? AND password=?";
-$stmt2 = $mysqli->prepare($sql);
-$stmt2->bind_param("ss", $email, $password);
 
 // Exécuter la requête
 if ($stmt->execute()) {
     echo "Inscription réussie";
+    
+    // Préparer et exécuter la requête pour récupérer les informations de l'utilisateur inscrit
+    $sql2 = "SELECT * FROM User WHERE email=? AND password=?";
+    $stmt2 = $mysqli->prepare($sql2);
+    $stmt2->bind_param("ss", $email, $password);
     $stmt2->execute();
     $result = $stmt2->get_result();
     $row = $result->fetch_assoc();
     $_SESSION['user_id'] = $row['id'];
+    
+    // Redirection vers la page profil
+    header("Location: profil.html");
+    exit();
 } else {
     echo "Erreur d'inscription: " . $stmt->error;
 }
