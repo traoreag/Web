@@ -26,6 +26,18 @@ $numero = $_POST['phone'];
 $password = $_POST['new_password'];
 $confirm_password = $_POST['confirm_password'];
 
+echo "nom" . $nom;
+echo "- prenom" . $prenom;
+echo "- username" . $username;
+echo "- email" . $email;
+echo "- dob" . $dob;
+echo "- gender" . $gender;
+echo "- pays" . $pays;
+echo "- adresse" . $adresse;
+echo "- numero" . $numero;
+echo "- pass" . $password;
+echo "- conf" . $confirm_password;
+
 // Vérifier si le mot de passe et la confirmation sont identiques
 if($password !== $confirm_password) {
     echo "Les mots de passe ne correspondent pas";
