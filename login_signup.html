@@ -15,33 +15,40 @@
 </head>
 <body>
     <div class="container">
+        <!-- Formulaire de Connexion -->
         <form id="loginForm" action="#" method="post">
             <h2>Connexion</h2>
-            <input type="email" name="email" placeholder="E-mail" autocomplete="email" required>
-            <input type="password" name="password" placeholder="mot de passe" autocomplete="new-password" required>
+            <div class="form-group">
+                <label for="email">E-mail :</label>
+                <input type="email" name="email" id="email" placeholder="E-mail" autocomplete="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Mot de passe :</label>
+                <input type="password" name="password" id="password" placeholder="Mot de passe" autocomplete="new-password" required>
+            </div>
             <input type="submit" id="login" value="Se connecter">
             <p>Pas de compte? <a href="#" id="toggleLinkSignup">Inscrivez-vous ici</a>.</p>
         </form>
+
+        <!-- Formulaire d'Inscription -->
         <form id="signupForm" action="#" method="post" style="display: none;">
             <h2>Inscription</h2>
-            <input type="text" name="nom" placeholder="NOM" autocomplete="family-name" required>
-            <input type="text" name="prenom" placeholder="Prénom" autocomplete="given-name" required>
-            <input type="text" name="new_username" placeholder="nom d'utilisateur" autocomplete="username" required>
-            <input type="email" name="new_email" placeholder="E-mail" autocomplete="email" required>
-            <input type="date" id="date" name="dob" value="aaaa-mm-jj" min="1900-01-01" max="2024-01-01" placeholder="Date de naissance" autocomplete="off" required>
-            <select name="gender" required>
-                <option value="" disabled selected>Genre</option>
-                <option value="male">Homme</option>
-                <option value="female">Femme</option>
-                <option value="other">Autre</option>
-            </select>
-            <select name="pays_naissance" id="pays_naissance">
-                <option value="" disabled selected>Pays de naissance</option>
-            </select>
-            <input type="text" name="adresse" placeholder="Votre Adresse" autocomplete="address-line1" required>
-            <input type="tel" name="phone" placeholder="Numéro de téléphone" autocomplete="tel" required>
-            <input type="password" name="new_password" id="new_password" placeholder="Nouveau mot de passe" autocomplete="new-password" required>
-            <input type="password" name="confirm_password" id="confirm_password" placeholder="Comfirmez votre mot de passe" autocomplete="new-password" required>
+            <div class="form-group">
+                <label for="nom">Nom :</label>
+                <input type="text" name="nom" id="nom" placeholder="Nom" autocomplete="family-name" required>
+            </div>
+            <div class="form-group">
+                <label for="prenom">Prénom :</label>
+                <input type="text" name="prenom" id="prenom" placeholder="Prénom" autocomplete="given-name" required>
+            </div>
+            <div class="form-group">
+                <label for="new_username">Nom d'utilisateur :</label>
+                <input type="text" name="new_username" id="new_username" placeholder="Nom d'utilisateur" autocomplete="username" required>
+            </div>
+            <div class="form-group">
+                <label for="new_email">E-mail :</label>
+                <input type="email" name="new_email" id="new_email" placeholder="E-mail" autocomplete="email" required>
+            </div>
             <input type="submit" id="signup" value="S'inscrire">
             <p>Déjà un compte? <a href='#' id='toggleLinkLogin'>Connectez-vous ici</a>.</p>
         </form>
