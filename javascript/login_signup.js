@@ -30,7 +30,10 @@ login.addEventListener('click', function(event) {
         alert("Veuillez remplir tous les champs du formulaire de connexion.");
         return;
     }
-
+    if (!email.val()) {
+        $('#email-error').text('Veuillez entrer votre adresse e-mail.');
+        return;
+    }
     // Récupérer les données du formulaire
     var formData = {
         email: $('input[name=email]').val(),
