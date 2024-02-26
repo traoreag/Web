@@ -111,8 +111,17 @@ a:hover {
 }
 
 .container {
-    max-width: 800px;
+    max-width: 500px;
     padding: 40px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.5s ease; /* Animation lors du chargement de la page */
+}
+
+.container2 {
+    max-width: 500px;
+    padding: 10px;
     background-color: #ffffff;
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
