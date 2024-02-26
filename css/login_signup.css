@@ -9,6 +9,12 @@ body {
     height: 100vh;
 }
 
+label {
+    font-family: 'Arial', sans-serif;
+    display: block;
+    font-weight: bold;
+}
+
 .container {
     max-width: 400px;
     padding: 40px;
@@ -97,9 +103,4 @@ a {
 
 a:hover {
     color: #0056b3;
-}
-
-label {
-    display: block;
-    font-weight: bold;
 }

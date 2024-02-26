@@ -15,40 +15,46 @@
 </head>
 <body>
     <div class="container">
-        <!-- Formulaire de Connexion -->
         <form id="loginForm" action="#" method="post">
             <h2>Connexion</h2>
-            <div class="form-group">
-                <label for="email">E-mail :</label>
-                <input type="email" name="email" id="email" placeholder="E-mail" autocomplete="email" required>
-            </div>
-            <div class="form-group">
-                <label for="password">Mot de passe :</label>
-                <input type="password" name="password" id="password" placeholder="Mot de passe" autocomplete="new-password" required>
-            </div>
+            <label for="login-email">E-mail</label>
+            <input type="email" id="login-email" name="email" placeholder="E-mail" autocomplete="email" required>
+            <label for="login-password">Mot de passe</label>
+            <input type="password" id="login-password" name="password" placeholder="Mot de passe" autocomplete="new-password" required>
             <input type="submit" id="login" value="Se connecter">
             <p>Pas de compte? <a href="#" id="toggleLinkSignup">Inscrivez-vous ici</a>.</p>
         </form>
-
-        <!-- Formulaire d'Inscription -->
         <form id="signupForm" action="#" method="post" style="display: none;">
             <h2>Inscription</h2>
-            <div class="form-group">
-                <label for="nom">Nom :</label>
-                <input type="text" name="nom" id="nom" placeholder="Nom" autocomplete="family-name" required>
-            </div>
-            <div class="form-group">
-                <label for="prenom">Prénom :</label>
-                <input type="text" name="prenom" id="prenom" placeholder="Prénom" autocomplete="given-name" required>
-            </div>
-            <div class="form-group">
-                <label for="new_username">Nom d'utilisateur :</label>
-                <input type="text" name="new_username" id="new_username" placeholder="Nom d'utilisateur" autocomplete="username" required>
-            </div>
-            <div class="form-group">
-                <label for="new_email">E-mail :</label>
-                <input type="email" name="new_email" id="new_email" placeholder="E-mail" autocomplete="email" required>
-            </div>
+            <label for="signup-nom">Nom</label>
+            <input type="text" id="signup-nom" name="nom" placeholder="Nom" autocomplete="family-name" required>
+            <label for="signup-prenom">Prénom</label>
+            <input type="text" id="signup-prenom" name="prenom" placeholder="Prénom" autocomplete="given-name" required>
+            <label for="signup-username">Nom d'utilisateur</label>
+            <input type="text" id="signup-username" name="new_username" placeholder="Nom d'utilisateur" autocomplete="username" required>
+            <label for="signup-email">E-mail</label>
+            <input type="email" id="signup-email" name="new_email" placeholder="E-mail" autocomplete="email" required>
+            <label for="signup-dob">Date de naissance</label>
+            <input type="date" id="signup-dob" name="dob" value="aaaa-mm-jj" min="1900-01-01" max="2024-01-01" placeholder="Date de naissance" autocomplete="off" required>
+            <label for="signup-gender">Genre</label>
+            <select id="signup-gender" name="gender" required>
+                <option value="" disabled selected>Genre</option>
+                <option value="male">Homme</option>
+                <option value="female">Femme</option>
+                <option value="other">Autre</option>
+            </select>
+            <label for="signup-pays">Pays de naissance</label>
+            <select id="signup-pays" name="pays_naissance">
+                <option value="" disabled selected>Pays de naissance</option>
+            </select>
+            <label for="signup-adresse">Adresse</label>
+            <input type="text" id="signup-adresse" name="adresse" placeholder="Votre Adresse" autocomplete="address-line1" required>
+            <label for="signup-phone">Numéro de téléphone</label>
+            <input type="tel" id="signup-phone" name="phone" placeholder="Numéro de téléphone" autocomplete="tel" required>
+            <label for="signup-newpassword">Nouveau mot de passe</label>
+            <input type="password" id="signup-newpassword" name="new_password" placeholder="Nouveau mot de passe" autocomplete="new-password" required>
+            <label for="signup-confirm-password">Confirmez votre mot de passe</label>
+            <input type="password" id="signup-confirm-password" name="confirm_password" placeholder="Confirmez votre mot de passe" autocomplete="new-password" required>
             <input type="submit" id="signup" value="S'inscrire">
             <p>Déjà un compte? <a href='#' id='toggleLinkLogin'>Connectez-vous ici</a>.</p>
         </form>
