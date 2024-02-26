@@ -38,11 +38,7 @@ login.addEventListener('click', function(event) {
         success: function(response) {
             // Traitement de la réponse en cas de succès
             console.log(response);
-            // Vérifier le code d'état HTTP de la réponse
-            if (xhr.status === 200) {
-                // Si le code d'état est 200 (OK), la connexion est réussie
-                window.location.href = 'profil.html';
-            }
+            window.location.href = 'profil.html';
         },
         error: function(xhr, status, error) {
             // Traitement de l'erreur
@@ -82,11 +78,7 @@ signup.addEventListener('click', function(event) {
         success: function(response) {
             // Traitement de la réponse en cas de succès
             console.log(response);
-            // Vérifier le code d'état HTTP de la réponse
-            if (xhr.status === 200) {
-                // Si le code d'état est 200 (OK), la connexion est réussie
-                window.location.href = 'profil.html';
-            }
+            window.location.href = 'profil.html';
         },
         error: function(xhr, status, error) {
             // Traitement de l'erreur
