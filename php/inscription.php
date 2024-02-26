@@ -26,23 +26,10 @@ $numero = $mysqli->real_escape_string($_POST['phone']);
 $password = $mysqli->real_escape_string($_POST['new_password']);
 $confirm_password = $mysqli->real_escape_string($_POST['confirm_password']);
 
-echo "nom" . $nom;
-echo "- prenom" . $prenom;
-echo "- username" . $username;
-echo "- email" . $email;
-echo "- dob" . $dob;
-echo "- gender" . $gender;
-echo "- pays" . $pays;
-echo "- adresse" . $adresse;
-echo "- numero" . $numero;
-echo "- pass" . $password;
-echo "- conf" . $confirm_password;
-
 // Vérifier si le mot de passe et la confirmation sont identiques
 if($password !== $confirm_password) {
+    http_response_code(400);
     echo "Les mots de passe ne correspondent pas";
-    echo "p" . $password;
-    echo "c" . $confirm_password;
     exit();
 }
 
@@ -77,7 +64,7 @@ if ($stmt->execute()) {
     $_SESSION['user_id'] = $row['id'];
     
     // Redirection vers la page profil
-    header("Location: profil.html");
+    header("Location: /profil.html");
     exit();
 } else {
     echo "Erreur d'inscription: " . $stmt->error;

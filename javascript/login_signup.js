@@ -36,15 +36,22 @@ login.addEventListener('click', function(event) {
         url: 'php/connexion.php',
         data: formData,
         success: function(response) {
-        // Traitement de la réponse en cas de succès
-        console.log(response);
-        // Rediriger l'utilisateur vers la page profil si la connexion est réussie
-        window.location.href = 'profil.html';
+            // Traitement de la réponse en cas de succès
+            console.log(response);
+            // Vérifier le code d'état HTTP de la réponse
+            if (xhr.status === 200) {
+                // Si le code d'état est 200 (OK), la connexion est réussie
+                window.location.href = 'profil.html';
+            }
+            else if(xhr.status === 400) {
+                alert(xhr.responseText); 
+            }
         },
         error: function(xhr, status, error) {
-        // Traitement de l'erreur
-        console.log(xhr.responseText);
-        // Afficher un message d'erreur à l'utilisateur
+            // Traitement de l'erreur
+            console.log(xhr.responseText);
+            // Afficher un message d'erreur à l'utilisateur
+            alert(xhr.responseText);
         }
     });
 });
@@ -74,15 +81,23 @@ signup.addEventListener('click', function(event) {
         url: 'php/inscription.php',
         data: formData,
         success: function(response) {
-        // Traitement de la réponse en cas de succès
-        console.log(response);
-        // Rediriger l'utilisateur vers la page profil si l'inscription est réussie
-        //window.location.href = 'profil.html';
+            // Traitement de la réponse en cas de succès
+            console.log(response);
+            // Vérifier le code d'état HTTP de la réponse
+            if (xhr.status === 200) {
+                // Si le code d'état est 200 (OK), la connexion est réussie
+                window.location.href = 'profil.html';
+            }
+            
+            else if(xhr.status === 400) {
+                alert(xhr.responseText); 
+            }
         },
         error: function(xhr, status, error) {
-        // Traitement de l'erreur
-        console.log(xhr.responseText);
-        // Afficher un message d'erreur à l'utilisateur
+            // Traitement de l'erreur
+            console.log(xhr.responseText);
+            // Afficher un message d'erreur à l'utilisateur
+            alert(xhr.responseText);
         }
     });
 });
