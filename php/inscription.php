@@ -44,9 +44,10 @@ if($result->num_rows > 0) {
 $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
 // Préparer la requête d'insertion avec des paramètres
-$sql = "INSERT INTO User (nom, prenom, username, email, dob, gender, pays, adresse, numero, password) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+$sql = "INSERT INTO User SET nom=?, prenom=?, username=?, email=?, dob=?, gender=?, pays=?, adresse=?, numero=?, password=?";
 $stmt = $mysqli->prepare($sql);
 $stmt->bind_param("ssssssssss", $nom, $prenom, $username, $email, $date, $gender, $pays, $adresse, $phone, $hashed_password);
+
 
 // Exécuter la requête
 if ($stmt->execute()) {
