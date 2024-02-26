@@ -17,6 +17,8 @@ if($mysqli->connect_errno) {
 $email = $mysqli->real_escape_string($_POST['email']);
 $password = $mysqli->real_escape_string($_POST['password']);
 
+http_response_code(200);
+
 // Requête préparée pour vérifier si l'utilisateur existe dans la base de données
 $sql = "SELECT * FROM User WHERE email=? AND password=?";
 $stmt = $mysqli->prepare($sql);

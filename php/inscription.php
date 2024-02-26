@@ -26,6 +26,9 @@ $numero = $mysqli->real_escape_string($_POST['phone']);
 $password = $mysqli->real_escape_string($_POST['new_password']);
 $confirm_password = $mysqli->real_escape_string($_POST['confirm_password']);
 
+
+http_response_code(200);
+
 // Vérifier si le mot de passe et la confirmation sont identiques
 if($password !== $confirm_password) {
     http_response_code(400);
