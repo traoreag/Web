@@ -55,6 +55,7 @@ login.addEventListener('click', function(event) {
             }
         }
     });
+    $('#loginForm input').val('');
 });
 
 
@@ -102,6 +103,8 @@ signup.addEventListener('click', function(event) {
             }
         }
     });
+    $('#signupForm input').val('');
+    $('#signupForm select').val('');
 });
 
 
