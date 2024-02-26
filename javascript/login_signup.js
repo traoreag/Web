@@ -65,7 +65,7 @@ signup.addEventListener('click', function(event) {
         adresse: $('input[name=adresse]').val(),
         phone: $('input[name=phone]').val(),
         new_password: $('input[name=new_password]').val(),
-        Confirm_password: $('input[name=Confirm_password]').val()
+        confirm_password: $('input[name=confirm_password]').val()
     };
 
     // Effectuer la requête AJAX

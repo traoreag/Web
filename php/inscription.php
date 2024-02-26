@@ -24,7 +24,7 @@ $pays = $_POST['pays_naissance']; // Le nom du champ dans le formulaire est 'pay
 $adresse = $_POST['adresse'];
 $numero = $_POST['phone'];
 $password = $_POST['new_password'];
-$confirm_password = $_POST['Confirm_password'];
+$confirm_password = $_POST['confirm_password'];
 
 // Vérifier si le mot de passe et la confirmation sont identiques
 if($password !== $confirm_password) {
