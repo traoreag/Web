@@ -14,17 +14,17 @@ if($mysqli->connect_errno) {
 }
 
 // Récupérer les données du formulaire d'inscription
-$nom = $_POST['nom'];
-$prenom = $_POST['prenom'];
-$username = $_POST['new_username'];
-$email = $_POST['new_email'];
-$dob = $_POST['dob'];
-$gender = $_POST['gender'];
-$pays = $_POST['pays_naissance']; // Le nom du champ dans le formulaire est 'pays_naissance'
-$adresse = $_POST['adresse'];
-$numero = $_POST['phone'];
-$password = $_POST['new_password'];
-$confirm_password = $_POST['confirm_password'];
+$nom = $mysqli->real_escape_string($_POST['nom']);
+$prenom = $mysqli->real_escape_string($_POST['prenom']);
+$username = $mysqli->real_escape_string($_POST['new_username']);
+$email = $mysqli->real_escape_string($_POST['new_email']);
+$dob = $mysqli->real_escape_string($_POST['dob']);
+$gender = $mysqli->real_escape_string($_POST['gender']);
+$pays = $mysqli->real_escape_string($_POST['pays_naissance']); // Le nom du champ dans le formulaire est 'pays_naissance'
+$adresse = $mysqli->real_escape_string($_POST['adresse']);
+$numero = $mysqli->real_escape_string($_POST['phone']);
+$password = $mysqli->real_escape_string($_POST['new_password']);
+$confirm_password = $mysqli->real_escape_string($_POST['confirm_password']);
 
 echo "nom" . $nom;
 echo "- prenom" . $prenom;
