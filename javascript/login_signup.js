@@ -66,11 +66,11 @@ signup.addEventListener('click', function(event) {
     event.preventDefault(); // Empêcher le formulaire de soumettre normalement
     
     // Vérifier que tous les champs du formulaire d'inscription sont remplis
-    if (!$('#signupForm')[0].checkValidity()) {
+    //if (!$('#signupForm')[0].checkValidity()) {
         // Si un champ est vide, empêcher la soumission du formulaire
-        alert("Veuillez remplir tous les champs du formulaire d'inscription.");
-        return;
-    }
+        //alert("Veuillez remplir tous les champs du formulaire d'inscription.");
+        //return;
+    //}
 
     // Récupérer les données du formulaire
     var formData = {
