@@ -77,7 +77,7 @@ signup.addEventListener('click', function(event) {
         // Traitement de la réponse en cas de succès
         console.log(response);
         // Rediriger l'utilisateur vers la page profil si l'inscription est réussie
-        window.location.href = 'profil.html';
+        //window.location.href = 'profil.html';
         },
         error: function(xhr, status, error) {
         // Traitement de l'erreur

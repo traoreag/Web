@@ -18,11 +18,11 @@ $nom = $_POST['nom'];
 $prenom = $_POST['prenom'];
 $username = $_POST['new_username'];
 $email = $_POST['new_email'];
-$date = $_POST['dob'];
+$dob = $_POST['dob'];
 $gender = $_POST['gender'];
 $pays = $_POST['pays_naissance']; // Le nom du champ dans le formulaire est 'pays_naissance'
 $adresse = $_POST['adresse'];
-$phone = $_POST['phone'];
+$numero = $_POST['phone'];
 $password = $_POST['new_password'];
 $confirm_password = $_POST['Confirm_password'];
 
@@ -46,7 +46,7 @@ $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 // Préparer la requête d'insertion avec des paramètres
 $sql = "INSERT INTO User SET nom=?, prenom=?, username=?, email=?, dob=?, gender=?, pays=?, adresse=?, numero=?, password=?";
 $stmt = $mysqli->prepare($sql);
-$stmt->bind_param("ssssssssss", $nom, $prenom, $username, $email, $date, $gender, $pays, $adresse, $phone, $hashed_password);
+$stmt->bind_param("ssssssssss", $nom, $prenom, $username, $email, $dob, $gender, $pays, $adresse, $numero, $hashed_password);
 
 
 // Exécuter la requête
