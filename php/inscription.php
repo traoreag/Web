@@ -37,6 +37,7 @@ if($password !== $confirm_password) {
 $query = "SELECT * FROM User WHERE username='$username'";
 $result = $mysqli->query($query);
 if($result->num_rows > 0) {
+    http_response_code(400);
     echo "Nom d'utilisateur déjà utilisé, veuillez en choisir un autre";
     exit();
 }
@@ -67,6 +68,7 @@ if ($stmt->execute()) {
     header("Location: /profil.html");
     exit();
 } else {
+    http_response_code(400);
     echo "Erreur d'inscription: " . $stmt->error;
 }
 

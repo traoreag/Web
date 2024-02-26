@@ -30,6 +30,7 @@ if ($result->num_rows > 0) {
     echo "Connexion réussie";
     $_SESSION['user_id'] = $row['id'];
 } else {
+    http_response_code(400);
     // Aucun utilisateur trouvé, authentification échouée
     echo "Identifiants invalides";
 }

@@ -43,15 +43,14 @@ login.addEventListener('click', function(event) {
                 // Si le code d'état est 200 (OK), la connexion est réussie
                 window.location.href = 'profil.html';
             }
-            else if(xhr.status === 400) {
-                alert(xhr.responseText); 
-            }
         },
         error: function(xhr, status, error) {
             // Traitement de l'erreur
             console.log(xhr.responseText);
             // Afficher un message d'erreur à l'utilisateur
-            alert(xhr.responseText);
+            if(xhr.status === 400) {
+                alert(xhr.responseText); 
+            }
         }
     });
 });
@@ -88,16 +87,14 @@ signup.addEventListener('click', function(event) {
                 // Si le code d'état est 200 (OK), la connexion est réussie
                 window.location.href = 'profil.html';
             }
-            
-            else if(xhr.status === 400) {
-                alert(xhr.responseText); 
-            }
         },
         error: function(xhr, status, error) {
             // Traitement de l'erreur
             console.log(xhr.responseText);
             // Afficher un message d'erreur à l'utilisateur
-            alert(xhr.responseText);
+            if(xhr.status === 400) {
+                alert(xhr.responseText); 
+            }
         }
     });
 });
