@@ -13,7 +13,7 @@ label {
     font-family: 'Arial', sans-serif;
     display: inline-block; /* Garder les étiquettes sur la même ligne que les champs de formulaire */
     width: calc(100% - 30px); /* Réduire la largeur de 30px pour compenser la marge et le padding */
-    margin: 10px 15px 5px; /* Appliquer une marge horizontale de 15px, une marge supérieure de 10px et une marge inférieure de 5px */
+    /*margin: 10px 10px 5px; /* Appliquer une marge horizontale de 15px, une marge supérieure de 10px et une marge inférieure de 5px */
 }
 
 
@@ -124,6 +124,5 @@ a:hover {
     padding: 10px;
     background-color: #ffffff;
     border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     animation: fadeIn 0.5s ease; /* Animation lors du chargement de la page */
 }
