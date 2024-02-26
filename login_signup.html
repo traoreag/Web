@@ -33,11 +33,14 @@
             <label for="new_username">Votre nom d'utilisateur : </label>
             <input type="text" name="new_username" placeholder="nom d'utilisateur" autocomplete="username" required>
             <label for="new_email">Votre E-mail : </label>
+            
             <input type="email" name="new_email" placeholder="E-mail" autocomplete="email" required>
-            <label for="dob">Votre date de naissance : </label>
-            <input type="date" id="date" name="dob" value="2000-01-01" min="1900-01-01" max="2024-01-01" placeholder="Date de naissance" autocomplete="off" required>
-            <label for="gender">Votre date de naissance : </label>
             <div>
+                </div><label for="dob">Votre date de naissance : </label>
+                <input type="date" id="date" name="dob" value="2000-01-01" min="1900-01-01" max="2024-01-01" placeholder="Date de naissance" autocomplete="off" required>
+            </div>
+            <div>
+                <label for="gender">Votre date de naissance : </label>
                 <select name="gender" required>
                     <option value="" disabled selected>Genre</option>
                     <option value="male">Homme</option>
@@ -46,12 +49,10 @@
                 </select>
             </div>
             <div>
-            <label for="pays_naissance">Pays de naissance : </label>
-            </div>
-            <div>
-            <select name="pays_naissance" id="pays_naissance">
-                <option value="" disabled selected>Pays de naissance</option>
-            </select>
+                <label for="pays_naissance">Pays de naissance : </label>
+                <select name="pays_naissance" id="pays_naissance">
+                    <option value="" disabled selected>Pays de naissance</option>
+                </select>
             </div>
             <label for="adresse">Votre adresse : </label>
             <input type="text" name="adresse" placeholder="Votre Adresse" autocomplete="address-line1" required>
