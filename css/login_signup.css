@@ -13,7 +13,7 @@ label {
     font-family: 'Arial', sans-serif;
     display: inline-block; /* Garder les étiquettes sur la même ligne que les champs de formulaire */
     width: calc(100% - 30px); /* Réduire la largeur de 30px pour compenser la marge et le padding */
-    margin: 10px 10px 5px; /* Appliquer une marge horizontale de 15px, une marge supérieure de 10px et une marge inférieure de 5px */
+    margin: 5px 5px 5px; /* Appliquer une marge horizontale de 15px, une marge supérieure de 10px et une marge inférieure de 5px */
 }
 
 
