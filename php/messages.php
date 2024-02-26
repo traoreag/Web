@@ -1,5 +1,7 @@
 <?php
-session_start();
+// Inclure le fichier de session_start
+include_once 'session.php';
+
 // Connexion à la base de données
 $mysqli = new mysqli("192.168.56.10", "admin", "network", "e_commerce");
 
