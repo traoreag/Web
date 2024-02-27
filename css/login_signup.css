@@ -116,7 +116,7 @@ a:hover {
     background-color: #ffffff;
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    animation: fadeIn 66s ease; /* Animation lors du chargement de la page */
+    animation: fadeIn 10s ease; /* Animation lors du chargement de la page */
 }
 
 .container2 {
