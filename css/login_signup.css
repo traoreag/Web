@@ -145,6 +145,7 @@ input[type="submit"] {
     background-color: #007bff; /* Couleur de fond pour le bouton de soumission */
     color: #fff;
     font-weight: bold;
+    font-size: 16px;
     cursor: pointer;
     transition: all 0.3s ease; /* Transition pour une animation fluide */
     text-align: center;
