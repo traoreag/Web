@@ -53,6 +53,7 @@ input[type="submit"] {
     color: #fff;
     font-weight: bold;
     cursor: pointer;
+    align-items: center;
     text-align: center;
     transition: all 0.3s ease; /* Transition pour une animation fluide */
 }
