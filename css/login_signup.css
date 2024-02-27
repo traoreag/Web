@@ -49,10 +49,11 @@ input[type="submit"] {
     border: none;
     border-radius: 5px;
     box-sizing: border-box;
-    background-color: #007bff;
+    background-color: #cae1fa;
     color: #fff;
     font-weight: bold;
     cursor: pointer;
+    text-align: center;
     transition: all 0.3s ease; /* Transition pour une animation fluide */
 }
 
