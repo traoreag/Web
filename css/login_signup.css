@@ -44,8 +44,8 @@ select {
 /* Style pour les boutons de soumission */
 input[type="submit"] {
     width: auto; /* Adaptation à la taille du contenu */
-    padding: 15px;
-    margin: 10px 0;
+    padding: 45px;
+    margin: 30px 0;
     border: none;
     border-radius: 5px;
     box-sizing: border-box;
