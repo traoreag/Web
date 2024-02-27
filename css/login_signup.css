@@ -38,7 +38,7 @@ input[type="tel"] {
     border: 1px solid #ccc;
     border-radius: 5px;
     box-sizing: border-box;
-    background-color: #f9f9f9;
+    background-color: #dadada;
     transition: all 0.3s ease; /* Transition pour une animation fluide */
 }
 
@@ -47,7 +47,7 @@ input[type="text"]:hover,
 input[type="email"]:hover,
 input[type="password"]:hover,
 input[type="tel"]:hover {
-    background-color: #ff1493; /* Couleur de fond rose foncé au survol */
+    background-color: #f9f9f9; /* Couleur de fond rose foncé au survol */
 }
 
 /* Effet lors du focus */
@@ -151,6 +151,8 @@ a:hover {
     padding: 40px;
     background-color: #ffffff;
     border-radius: 10px;
+    align-items: center;
+    text-align: center;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     animation: fadeIn 5s ease; /* Animation lors du chargement de la page */
 }
